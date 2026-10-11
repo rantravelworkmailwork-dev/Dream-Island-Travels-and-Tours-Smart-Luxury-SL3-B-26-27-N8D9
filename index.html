@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover Sri Lanka – Smart Luxury Tour | 9 Days</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar site-nav sticky-top shadow-sm">
+    <div class="container-fluid container-lg d-flex justify-content-between align-items-center">
+      <a class="navbar-brand d-flex align-items-center gap-3 text-wrap m-0" href="#">
+        <img src="images/dream island logo.jpeg" alt="Dream Island Travels Logo" class="brand-logo" />
+        <div>
+          <span class="brand-title">Dream Island Travels &amp; Tours Pvt Ltd</span>
+          <span class="brand-subtitle">Tailor-Made Holidays across Sri Lanka</span>
+        </div>
+      </a>
+      <div class="d-none d-lg-block nav-motto">Your Dream, Our Destination</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <p class="hero-kicker">SMART LUXURY • SRI LANKA</p>
+      <h1>A Private 9-Day Journey Through Sri Lanka</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-tagline">Culture, wildlife safaris, tea country, scenic train rides, and golden coastal escapes down south.</p>
+      <div class="hero-meta">
+        <span>Tour Code: SL3B / 26 / 27 / 8N / 9D / TA10</span>
+        <span>08 Nights / 09 Days</span>
+        <span>Half Board</span>
+        <span>Valid until 31st October 2027</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+
+    <!-- INTRO -->
+    <section class="luxe-card accent">
+      <h3 class="section-title">Discover the Timeless Beauty of Sri Lanka</h3>
+      <p class="section-sub">A land rich in culture, history and natural wonders</p>
+      <p class="intro-lead">Misty mountains, lush tea plantations, ancient temples, wildlife safaris in Yala, scenic train rides, coastal lagoons, and historic forts &mdash; unforgettable experiences for every traveller.</p>
+      <p class="intro-body mb-2">Explore sacred heritage sites, vibrant local traditions, coastal mangrove safaris, wild leopard habitats, and serene beaches, all while enjoying the warmth and hospitality of Sri Lanka's people. From adventure to relaxation, this journey is filled with beauty, charm, and lasting memories.</p>
+    </section>
+
+    <!-- KEY FACTS -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3"><div class="fact"><span class="fact-label">Tour</span><span class="fact-value">Smart Luxury Tour . Sri Lanka</span><span class="fact-note">Private Tour</span></div></div>
+      <div class="col-6 col-md-3"><div class="fact"><span class="fact-label">Duration</span><span class="fact-value">8N / 9D</span><span class="fact-note">Private chauffeur tour</span></div></div>
+      <div class="col-6 col-md-3"><div class="fact"><span class="fact-label">Meal Plan</span><span class="fact-value">Half Board</span><span class="fact-note">Breakfast &amp; dinner</span></div></div>
+      <div class="col-6 col-md-3"><div class="fact"><span class="fact-label">Rate Per Person</span><span class="fact-value">1590 USD</span><span class="fact-note">Arranged for you</span></div></div>
+    </div>
+
+    <!-- MAP -->
+    <section class="luxe-card">
+      <h4 class="section-title">Your Route</h4>
+      <p class="section-sub">Tap any pin to see the stay and highlights for that destination.</p>
+      <div id="sri-lanka-map"></div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="luxe-card">
+      <h4 class="section-title">Experiences Included</h4>
+      <p class="section-sub">Every activity below is covered in your package.</p>
+      <div>
+        <span class="tag">🥾 Sigiriya Rock Fortress</span>
+        <span class="tag">🌾 Village Tour</span>
+        <span class="tag">🌿 Ayurveda Massage</span>
+        <span class="tag">🛕 Dambulla Cave Temple</span>
+        <span class="tag">🌶️ Matale Spice Garden</span>
+        <span class="tag">🛕 Kandy Temple of the Tooth Relic</span>
+        <span class="tag">💃 Kandyan Cultural Show</span>
+        <span class="tag">💎 Gem Museum</span>
+        <span class="tag">☕ Tea Factory &amp; Plantation</span>
+        <span class="tag">🌊 Ramboda Falls</span>
+        <span class="tag">🚂 Scenic Mountain Train Ride</span>
+        <span class="tag">🐆 Yala National Park Safari</span>
+        <span class="tag">🏰 UNESCO Galle Fort</span>
+        <span class="tag">🚤 Madu River or Koggala Lagoon Safari</span>
+        <span class="tag">🐢 Sea Turtle Hatchery</span>
+      </div>
+    </section>
+
+    <!-- ITINERARY -->
+    <section class="mb-4">
+      <h4 class="mb-3">Day-by-Day Itinerary</h4>
+
+      <div class="accordion" id="itineraryAccordion">
+
+        <!-- Day 1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#day1">
+              <span class="day-no">Day 1</span> Arrival &amp; Transfer to Habarana / Sigiriya
+            </button>
+          </h2>
+          <div id="day1" class="accordion-collapse collapse show" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p>Arrive at Bandaranaike International Airport and be warmly welcomed by your private chauffeur guide. Transfer to your lakeside hotel in Habarana / Sigiriya. Check in and spend the remainder of the day relaxing after your flight.</p>
+                  <div>
+                    <span class="tag">🤝 Airport Meet &amp; Greet</span>
+                    <span class="tag">🚗 Private Transfer</span>
+                    <span class="tag">🏨 Hotel Relaxation</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Habarana &mdash; Wewa Addara Hotel<br><strong>Meals:</strong> Dinner &nbsp;|&nbsp; Night 1 of 3</div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day2">
+              <span class="day-no">Day 2</span> Sigiriya Rock Fortress &amp; Village Tour
+            </button>
+          </h2>
+          <div id="day2" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p><span class="slot">Morning</span> Climb the iconic 5th-century Sigiriya Rock Fortress, a UNESCO World Heritage site, famous for its ancient frescoes and panoramic summit views.</p>
+                  <p><span class="slot">Afternoon</span> Experience authentic rural life on an immersive Village Tour featuring a catamaran ride, traditional Sri Lankan cooking demonstration, and village lunch.</p>
+                  <div>
+                    <span class="tag">🥾 Sigiriya Rock</span>
+                    <span class="tag">🌾 Village Tour</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Habarana &mdash; Wewa Addara Hotel<br><strong>Meals:</strong> Breakfast &amp; Dinner &nbsp;|&nbsp; Night 2 of 3</div>
+                </div>
+                <div class="col-lg-5"><div class="day-photo-grid"><img src="images/sigiriya.jpeg" alt="Sigiriya Rock" /></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day3">
+              <span class="day-no">Day 3</span> Habarana Relaxation &amp; Ayurveda Wellness
+            </button>
+          </h2>
+          <div id="day3" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p><span class="slot">Morning &amp; Afternoon</span> Enjoy a leisurely morning at your resort, taking in the serene natural surroundings or relaxing by the pool.</p>
+                  <p><span class="slot">Evening</span> Revitalize your senses with an authentic traditional Sri Lankan Ayurveda Massage at a nearby wellness centre.</p>
+                  <div>
+                    <span class="tag">🌿 Ayurveda Massage</span>
+                    <span class="tag">🌴 Resort Relaxation</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Habarana &mdash; Wewa Addara Hotel<br><strong>Meals:</strong> Breakfast &amp; Dinner &nbsp;|&nbsp; Night 3 of 3</div>
+                </div>
+                <div class="col-lg-5">
+                  <div class="day-photo-grid">
+                    <img src="images/ayurveda.jpg" alt="Ayurveda massage" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day4">
+              <span class="day-no">Day 4</span> Dambulla Cave Temple, Spice Garden &amp; Kandy
+            </button>
+          </h2>
+          <div id="day4" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p>Check out and travel towards the hill capital of Kandy. En route, visit the magnificent Dambulla Cave Temple complex and a Matale Spice Garden. In Kandy, pay homage at the sacred Temple of the Tooth Relic, followed by an evening Kandyan Cultural Show.</p>
+                  <div>
+                    <span class="tag">🛕 Dambulla Cave Temple</span>
+                    <span class="tag">🌶️ Spice Garden</span>
+                    <span class="tag">🛕 Temple of the Tooth</span>
+                    <span class="tag">💃 Cultural Show</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Kandy &mdash; Topaz Hotel<br><strong>Meals:</strong> Breakfast &amp; Dinner</div>
+                </div>
+                <div class="col-lg-5"><div class="day-photo-grid"><img src="images/culturalshow.jpg" alt="Kandyan cultural show" /></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day5">
+              <span class="day-no">Day 5</span> Gem Museum, Tea Plantation &amp; Nuwara Eliya
+            </button>
+          </h2>
+          <div id="day5" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p>Visit a licensed Gem Museum in Kandy before driving up into the tea country. Tour a working Ceylon Tea Factory &amp; Plantation to observe tea plucking and processing, stop at the scenic Ramboda Falls, and arrive in the cool hill station of Nuwara Eliya.</p>
+                  <div>
+                    <span class="tag">💎 Gem Museum</span>
+                    <span class="tag">☕ Tea Factory &amp; Plantation</span>
+                    <span class="tag">🌊 Ramboda Falls</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Nuwara Eliya &mdash; Araliya Red Hotel<br><strong>Meals:</strong> Breakfast &amp; Dinner</div>
+                </div>
+                <div class="col-lg-5">
+                  <div class="day-photo-grid">
+                    <img src="images/Ramboda-Falls.jpg" alt="Ramboda Falls" />
+                    <img src="images/teafactory.jpg" alt="Tea factory" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day6">
+              <span class="day-no">Day 6</span> Scenic Train Journey to Ella
+            </button>
+          </h2>
+          <div id="day6" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p>Board the famous highland train for a world-renowned scenic train journey winding through misty mountain passes, pine forests, and emerald tea valleys to Ella. Check in to your hotel and unwind with beautiful valley views.</p>
+                  <div>
+                    <span class="tag">🚂 Scenic Train Ride</span>
+                    <span class="tag">🏔️ Ella Gap Views</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Ella &mdash; Hillcrest Ella<br><strong>Meals:</strong> Breakfast &amp; Dinner</div>
+                </div>
+                <div class="col-lg-5"><div class="day-photo-grid"><img src="images/ellatrain.jpg" alt="Ella train journey" /></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day7">
+              <span class="day-no">Day 7</span> Ella to Tissamaharama &amp; Yala Safari
+            </button>
+          </h2>
+          <div id="day7" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p>Descend from Ella towards Tissamaharama. In the afternoon, set out on an exciting 4x4 Jeep Safari through Yala National Park, famous worldwide for its wild elephant herds, sloth bears, birds, and high concentration of leopards.</p>
+                  <div>
+                    <span class="tag">🐆 Yala Safari</span>
+                    <span class="tag">🐘 4x4 Wildlife Jeep Safari</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Tissamaharama / Yala &mdash; Hotel Tamarind Tree<br><strong>Meals:</strong> Breakfast &amp; Dinner</div>
+                </div>
+                <div class="col-lg-5"><div class="day-photo-grid"><img src="images/elephant_safari.jpg" alt="Yala Safari" /></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 8 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day8">
+              <span class="day-no">Day 8</span> Galle Fort, Coastal Boat Safari &amp; Turtle Hatchery
+            </button>
+          </h2>
+          <div id="day8" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p>Drive along the southern coast to explore the historic UNESCO World Heritage site Galle Fort. Enjoy a scenic boat safari through the mangroves of Madu River or Koggala Lagoon, and visit a Sea Turtle Hatchery supporting marine conservation.</p>
+                  <div>
+                    <span class="tag">🏰 UNESCO Galle Fort</span>
+                    <span class="tag">🚤 Madu River / Koggala Lagoon</span>
+                    <span class="tag">🐢 Sea Turtle Hatchery</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Down South &mdash; Pandanus Beach Resort &amp; Spa<br><strong>Meals:</strong> Breakfast &amp; Dinner</div>
+                </div>
+                <div class="col-lg-5"><div class="day-photo-grid"><img src="images/gallefort.jpg" alt="Galle Fort" /></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 9 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day9">
+              <span class="day-no">Day 9</span> Coastal Departure Transfer
+            </button>
+          </h2>
+          <div id="day9" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <p>After breakfast, check out from your hotel and take a private express highway transfer to Bandaranaike International Airport in Katunayake (or Negombo) for your departure flight home, bringing your memorable Sri Lankan holiday to a close.</p>
+              <div class="stay-info"><strong>Departure Transfer:</strong> Private transfer to airport.<br><strong>Meals:</strong> Breakfast</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACCOMMODATION LIST -->
+    <section class="luxe-card">
+      <h4 class="section-title">Your Hotel Accommodations (3/4 ⭐)</h4>
+      <p class="section-sub">Below is the offered hotel for each stop during your private tour.</p>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4">
+          <div class="hotel-card">
+            <div class="hotel-head"><h5>Habarana / Sigiriya</h5><span>03 Nights &bull; Half Board</span></div>
+            <ul class="hotel-list"><li>Wewa Addara Hotel</li></ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="hotel-card">
+            <div class="hotel-head"><h5>Kandy</h5><span>01 Night &bull; Half Board</span></div>
+            <ul class="hotel-list"><li>Topaz Hotel</li></ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="hotel-card">
+            <div class="hotel-head"><h5>Nuwara Eliya</h5><span>01 Night &bull; Half Board</span></div>
+            <ul class="hotel-list"><li>Araliya Red Hotel</li></ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="hotel-card">
+            <div class="hotel-head"><h5>Ella</h5><span>01 Night &bull; Half Board</span></div>
+            <ul class="hotel-list"><li>Hillcrest Ella</li></ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="hotel-card">
+            <div class="hotel-head"><h5>Tissamaharama / Yala</h5><span>01 Night &bull; Half Board</span></div>
+            <ul class="hotel-list"><li>Hotel Tamarind Tree</li></ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="hotel-card">
+            <div class="hotel-head"><h5>Down South</h5><span>01 Night &bull; Half Board</span></div>
+            <ul class="hotel-list"><li>Pandanus Beach Resort &amp; Spa</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOTEL AVAILABILITY DISCLAIMER NOTE -->
+    <section class="note">
+      <h5>Hotel Availability Note</h5>
+      <p>In the event that any of the above specified hotels are unavailable at the time of booking, we will provide a similar hotel of the same standard and category.</p>
+    </section>
+
+    <!-- VALIDITY NOTE -->
+    <section class="note">
+      <h5>Package Validity</h5>
+      <p>This package is valid only until <strong>31st October 2027</strong>. Rates and arrangements apply to tours completed within this period.</p>
+    </section>
+
+    <!-- MEAL NOTE -->
+    <section class="note">
+      <h5>Meal Plan</h5>
+      <p>Your stay is on a Half Board basis at every hotel, with breakfast and dinner included so you can settle in after a full day of sightseeing. Lunches and beverages are not included and can be enjoyed at stops along the route.</p>
+    </section>
+
+    <!-- GUIDANCE -->
+    <section class="note">
+      <h5>Your Journey, Your Comfort</h5>
+      <p>Your chauffeur will assist you throughout the journey and help keep the itinerary comfortable and on schedule. Travel times may vary depending on road and weather conditions.</p>
+    </section>
+
+    <!-- INCLUSIONS / EXCLUSIONS -->
+    <section class="luxe-card">
+      <h4 class="mb-3">Package Details</h4>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="package-box">
+            <h5>The above prices include</h5>
+            <ul class="package-list">
+              <li>3/4 star standard hotels on a breakfast and dinner basis.</li>
+              <li>Hotels as specified or similar alternatives of equivalent standard subject to availability.</li>
+              <li>Driver / guide accommodation and expenses.</li>
+              <li>Transport by fully air-conditioned vehicle throughout the tour.</li>
+              <li>Entrance fees and activity charges for the attractions listed above.</li>
+              <li>All tolls, parking and fuel costs.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="package-box excluded">
+            <h5>The above prices do not include</h5>
+            <ul class="package-list">
+              <li>Early check-in and late check-out costs.</li>
+              <li>Christmas Day, New Year's Day and Kandy Perahera week supplements at hotels.</li>
+              <li>Lunch and beverages throughout the tour.</li>
+              <li>Expenses of a personal nature.</li>
+              <li>Any other services not specified above.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICIES -->
+    <section class="luxe-card">
+      <h4 class="section-title mb-1">Policies &amp; Conditions</h4>
+      <p class="section-sub mb-4">Essential information regarding your booking, stay, and cancellations.</p>
+
+      <div class="policy-stack">
+
+        <!-- 1. General Booking & Payments -->
+        <div class="policy-subcard">
+          <h5 class="policy-subcard-title"><span>01</span> General Booking &amp; Payment</h5>
+          <ul class="package-list">
+            <li>The programme is based on hotel room availability at the time the quotation is sent, and rooms remain subject to availability at the time of booking.</li>
+            <li>Due to high occupancy, hotels accept confirmed bookings only.</li>
+            <li>Once our proposal is accepted, the final confirmation with overnight stays and itinerary will be forwarded. We will do our best to book the hotels mentioned, or suitable alternatives.</li>
+            <li><strong>Advance Payment:</strong> A 20% advance payment is required 2 months before the tour start date. The remaining balance can be paid on the first day of the tour.</li>
+          </ul>
+        </div>
+
+        <!-- 2. Hotel Rules -->
+        <div class="policy-subcard">
+          <h5 class="policy-subcard-title"><span>02</span> Hotel Rules &amp; Timing</h5>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="timing-badge">
+                <span class="timing-label">Official Check-In</span>
+                <span class="timing-value">13:00 hrs</span>
+              </div>
+              <span class="timing-label">( Check-in time might differ depending on each hotel )</span>
+            </div>
+            <div class="col-sm-6">
+              <div class="timing-badge">
+                <span class="timing-label">Official Check-Out</span>
+                <span class="timing-value">11:00 hrs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Child Policy -->
+        <div class="policy-subcard">
+          <h5 class="policy-subcard-title"><span>03</span> Child Policy</h5>
+          <div class="row g-2 align-items-center">
+            <div class="col-md-4">
+              <div class="child-tier">
+                <span class="tier-age">0 – 5.99 Years</span>
+                <span class="tier-price fee-none">Free of charge</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="child-tier">
+                <span class="tier-age">6 – 11.99 Years</span>
+                <span class="tier-price">50% of package rate</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="child-tier">
+                <span class="tier-age">12+ Years</span>
+                <span class="tier-price">Adult rate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Cancellation Policy -->
+        <div class="policy-subcard">
+          <h5 class="policy-subcard-title"><span>04</span> Cancellation Policy</h5>
+          <div class="table-responsive">
+            <table class="luxe-table">
+              <thead>
+                <tr>
+                  <th>Notice Before Arrival</th>
+                  <th class="num">Cancellation Fee (% of total)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0 – 15 days</td>
+                  <td class="num fee-high">100%</td>
+                </tr>
+                <tr>
+                  <td>16 – 21 days</td>
+                  <td class="num">80%</td>
+                </tr>
+                <tr>
+                  <td>22 – 30 days</td>
+                  <td class="num">50%</td>
+                </tr>
+                <tr>
+                  <td>Over 31 days</td>
+                  <td class="num fee-none">No cancellation fee</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 5. Other Important Conditions -->
+        <div class="policy-subcard">
+          <h5 class="policy-subcard-title"><span>05</span> Important Notes &amp; Conditions</h5>
+          <ul class="package-list">
+            <li>Optional excursions and additional services can be provided at an extra charge.</li>
+            <li>Visits to wildlife parks are at the client's own risk.</li>
+            <li>Safari vehicles (non-air-conditioned) are very basic, with insurance coverage that is not as comprehensive as vehicles used on main transfers.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="agency-footer">
+    <div class="container px-3">
+      <div class="footer-top-row">
+        <div class="d-flex align-items-center gap-3">
+          <img src="images/dream island logo.jpeg" alt="Dream Island Logo" class="footer-logo">
+          <div>
+            <h5>Dream Island Travels &amp; Tours Pvt Ltd</h5>
+            <span class="footer-sub">Tailor-Made Holidays across Sri Lanka</span>
+          </div>
+        </div>
+        <div class="footer-tagline text-md-end">
+          <span class="d-block footer-tagline-main">Culture &bull; Wildlife &bull; Adventures</span>
+          <span class="footer-tagline-sub">&ldquo;Your Dream, Our Destination&rdquo;</span>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-center justify-content-between">
+        <div class="col-lg-8">
+          <div class="d-flex flex-column gap-2">
+            <div class="d-flex align-items-start gap-2">
+              <span>📍</span>
+              <a href="https://maps.app.goo.gl/XyPVxmkMoir6SZHaA?g_st=awb" target="_blank" rel="noopener" class="footer-contact-text">357/1, Waththegedara, Vithikuliya, Sri Lanka</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span>✉️</span>
+              <a href="mailto:Info@dreamislandtravels.com" class="footer-contact-text">Info@dreamislandtravels.com</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#1877F2" class="flex-shrink-0" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
+              <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-contact-text">facebook.com/dreamislandtravels</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span>🦉</span>
+              <a href="https://www.tripadvisor.co.uk/Attraction_Review-g293962-d34504009-Reviews-Dream_Island_Travels_Tours_Pvt_Ltd-Colombo_Western_Province.html" target="_blank" rel="noopener" class="footer-contact-text">TripAdvisor Reviews</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 text-lg-end">
+          <div class="contact-call-card d-inline-block text-start w-100">
+            <span class="label">Contact Us</span>
+            <a href="tel:+94743935369" class="phone-link d-block">+94 74 393 5369</a>
+            <a href="tel:+94767070706" class="phone-link d-block">+94 76 707 0706</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">&copy; Dream Island Travels &amp; Tours Pvt Ltd. All rights reserved. | Reg. No. PV00301414</div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
